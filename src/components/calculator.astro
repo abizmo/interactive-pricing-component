@@ -1,0 +1,53 @@
+---
+
+---
+
+<div>
+  <p id='views'>100K pageviews</p>
+  <p><b id='price'>$16.00</b>/month</p>
+  <div>
+    <input type='range' min='1' max='5' value='3' id='pageviews' />
+  </div>
+</div>
+<div>
+  <p>Monthly Billing</p>
+  <label>
+    <input type='checkbox' id='billing' />
+    <span></span>
+  </label>
+  <p>Yearly Billing <span>25% discount</span></p>
+</div>
+
+<script>
+  const pageviewsElement = document.getElementById(
+    'pageviews'
+  ) as HTMLInputElement
+  const viewsElement = document.getElementById('views') as HTMLParagraphElement
+  const priceElement = document.getElementById('price') as HTMLParagraphElement
+  const billingElement = document.getElementById('billing') as HTMLInputElement
+
+  pageviewsElement.addEventListener('input', (e) => {
+    const value = parseInt((e.target as HTMLInputElement).value)
+    printPageviews(value)
+    printPrice(value)
+  })
+
+  billingElement.addEventListener('change', () => {
+    printPrice(parseInt(pageviewsElement.value))
+  })
+
+  function getPrice(value: number): number {
+    const prices = [8, 12, 16, 24, 36]
+    return prices[value - 1] * (billingElement.checked ? 0.75 : 1)
+  }
+
+  function printPageviews(views: number): void {
+    const values = ['10K', '50K', '100K', '500K', '1M']
+    viewsElement.textContent = `${values[views - 1]} pageviews`
+  }
+
+  function printPrice(pageviews: number): void {
+    const price = getPrice(pageviews)
+    priceElement.textContent = `$${price.toFixed(2)}`
+  }
+</script>
