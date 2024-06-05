@@ -25,6 +25,8 @@
   --card-fg: var(--grayish-blue);
   --toggle-bg: var(--light-grayish-blue-2);
 
+  --ff-sans: 'Manrope', sans-serif;
+
   --fs-xs: 0.625rem;
   --fs-sm: 0.75rem;
   --fs-md: 0.875rem;
@@ -45,6 +47,8 @@ body {
   background-size: auto 400px;
   min-height: 100vh;
   font-size: var(--fs-md);
+  font-family: var(--ff-sans);
+  font-weight: var(--fw-regular);
 }
 
 @media (min-width: 48em) {
