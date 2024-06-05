@@ -12,17 +12,29 @@
   --dark-desaturated-blue: 227 35% 25%;
 
   --slider-bar: var(--light-grayish-blue);
-  --slider-bar-full: var(--soft-cyan);
+  --slider-bar--full: var(--soft-cyan);
   --slider-bg: var(--strong-cyan);
   --discount-bg: var(--light-grayish-red);
   --discount-fg: var(--light-red);
   --cta-bg: var(--dark-desaturated-blue);
   --cta-fg: var(--pale-blue);
+  --cta-fg--hover: var(--white);
   --bg: var(--very-pale-blue);
   --fg: var(--dark-desaturated-blue);
   --card-bg: var(--white);
   --card-fg: var(--grayish-blue);
   --toggle-bg: var(--light-grayish-blue-2);
+
+  --fs-xs: 0.625rem;
+  --fs-sm: 0.75rem;
+  --fs-md: 0.875rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 2rem;
+
+  --fw-regular: 600;
+  --fw-bold: 800;
+
+  --br-full: 9999rem;
 }
 
 body {
@@ -32,6 +44,7 @@ body {
   background-repeat: no-repeat;
   background-size: auto 400px;
   min-height: 100vh;
+  font-size: var(--fs-md);
 }
 
 @media (min-width: 48em) {
