@@ -5,8 +5,25 @@ import Root from '@layouts/root.astro'
 
 <Root title='Interactive pricing component'>
   <div class='hero'>
-    <h1>Simple, traffic-based pricing</h1>
-    <p>Sign-up for our 30-day trial. No credit card required.</p>
+    <h1 class='hero__title'>Simple, traffic-based pricing</h1>
+    <p class='hero__text'>
+      Sign-up for our 30-day trial. No credit card required.
+    </p>
   </div>
   <Pricing />
 </Root>
+
+<style>
+  .hero {
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .hero__title {
+    color: hsl(var(--heading-fg));
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-bold);
+    line-height: 100%;
+    margin: 0 0 0.75rem;
+  }
+</style>

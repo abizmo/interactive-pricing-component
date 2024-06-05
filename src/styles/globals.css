@@ -20,7 +20,8 @@
   --cta-fg: var(--pale-blue);
   --cta-fg--hover: var(--white);
   --bg: var(--very-pale-blue);
-  --fg: var(--dark-desaturated-blue);
+  --fg: var(--grayish-blue);
+  --heading-fg: var(--dark-desaturated-blue);
   --card-bg: var(--white);
   --card-fg: var(--grayish-blue);
   --toggle-bg: var(--light-grayish-blue-2);
@@ -37,6 +38,19 @@
   --fw-bold: 800;
 
   --br-full: 9999rem;
+
+  --sp-xs: 0.75rem;
+  --sp-sm: 1.5rem;
+  --sp-md: 2.5rem;
+  --sp-lg: 6rem;
+  --sp-xl: 10.5rem;
+  --sp-2xl: 25rem;
+
+  --screen-md: 48rem;
+  --screen-lg: 70rem;
+
+  --padding: var(--sp-sm);
+  --max-widht: var(--screen-lg);
 }
 
 body {
@@ -44,15 +58,20 @@ body {
   color: hsl(var(--fg));
   background-image: url('/images/bg-pattern.svg');
   background-repeat: no-repeat;
-  background-size: auto 400px;
-  min-height: 100vh;
+  background-size: auto 25rem;
   font-size: var(--fs-md);
   font-family: var(--ff-sans);
   font-weight: var(--fw-regular);
+  line-height: 170%;
 }
 
 @media (min-width: 48em) {
   body {
     background-size: auto;
   }
+}
+
+.container {
+  width: min(var(--max-widht), 100% - var(--padding) * 2);
+  margin: 0 auto;
 }

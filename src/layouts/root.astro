@@ -21,9 +21,17 @@ const { title } = Astro.props
     />
   </head>
   <body>
-    <slot />
+    <main class='container main-container'>
+      <slot />
+    </main>
     <footer>
       <Attribution />
     </footer>
   </body>
 </html>
+
+<style>
+  .main-container {
+    padding-top: 6rem;
+  }
+</style>
