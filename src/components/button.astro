@@ -1,0 +1,22 @@
+---
+const { class: classname } = Astro.props
+---
+
+<button class:list={['button', classname]}><slot /></button>
+
+<style>
+  .button {
+    height: 2.5rem;
+    width: 10.5rem;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-bold);
+    background-color: hsl(var(--cta-bg));
+    color: hsl(var(--cta-fg));
+    border-radius: var(--br-full);
+    border: none;
+  }
+
+  .button:hover {
+    color: hsl(var(--cta-fg--hover));
+  }
+</style>
