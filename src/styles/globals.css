@@ -1,0 +1,41 @@
+:root {
+  --soft-cyan: 174 77% 80%;
+  --strong-cyan: 174 86% 45%;
+  --light-grayish-red: 14 92% 95%;
+  --light-red: 15 100% 70%;
+  --pale-blue: 226 100% 87%;
+  --white: 0 0% 100%;
+  --very-pale-blue: 230 100% 99%;
+  --light-grayish-blue: 224 65% 95%;
+  --light-grayish-blue-2: 223 50% 87%;
+  --grayish-blue: 225 20% 60%;
+  --dark-desaturated-blue: 227 35% 25%;
+
+  --slider-bar: var(--light-grayish-blue);
+  --slider-bar-full: var(--soft-cyan);
+  --slider-bg: var(--strong-cyan);
+  --discount-bg: var(--light-grayish-red);
+  --discount-fg: var(--light-red);
+  --cta-bg: var(--dark-desaturated-blue);
+  --cta-fg: var(--pale-blue);
+  --bg: var(--very-pale-blue);
+  --fg: var(--dark-desaturated-blue);
+  --card-bg: var(--white);
+  --card-fg: var(--grayish-blue);
+  --toggle-bg: var(--light-grayish-blue-2);
+}
+
+body {
+  background-color: hsl(var(--bg));
+  color: hsl(var(--fg));
+  background-image: url('/images/bg-pattern.svg');
+  background-repeat: no-repeat;
+  background-size: auto 400px;
+  min-height: 100vh;
+}
+
+@media (min-width: 48em) {
+  body {
+    background-size: auto;
+  }
+}
