@@ -24,6 +24,8 @@
   --heading-fg: var(--dark-desaturated-blue);
   --card-bg: var(--white);
   --card-fg: var(--grayish-blue);
+  --card-border: var(--light-grayish-blue);
+  --card-shadow: var(--dark-desaturated-blue);
   --toggle-bg: var(--light-grayish-blue-2);
 
   --ff-sans: 'Manrope', sans-serif;
@@ -37,11 +39,17 @@
   --fw-regular: 600;
   --fw-bold: 800;
 
+  --br-sm: 0.5rem;
   --br-full: 9999rem;
 
   --sp-xs: 0.75rem;
+  --sp-1xs: 1rem;
   --sp-sm: 1.5rem;
+  --sp-2sm: 2rem;
   --sp-md: 2.5rem;
+  --sp-1md: 3rem;
+  --sp-2md: 3.75rem;
+  --sp-3md: 4.25rem;
   --sp-lg: 6rem;
   --sp-xl: 10.5rem;
   --sp-2xl: 25rem;
@@ -50,7 +58,7 @@
   --screen-lg: 70rem;
 
   --padding: var(--sp-sm);
-  --max-widht: var(--screen-lg);
+  --max-width: var(--screen-lg);
 }
 
 body {
@@ -72,6 +80,6 @@ body {
 }
 
 .container {
-  width: min(var(--max-widht), 100% - var(--padding) * 2);
+  width: min(var(--max-width), 100% - var(--padding) * 2);
   margin: 0 auto;
 }
