@@ -15,8 +15,17 @@ import Root from '@layouts/root.astro'
 
 <style>
   .hero {
+    height: 9.0625rem;
     text-align: center;
     text-wrap: balance;
+    margin-top: var(--sp-2md);
+    margin-bottom: var(--sp-2sm);
+    background-image: url('/images/pattern-circles.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .hero__title {
@@ -25,5 +34,12 @@ import Root from '@layouts/root.astro'
     font-weight: var(--fw-bold);
     line-height: 100%;
     margin: 0 0 0.75rem;
+  }
+
+  @media (min-width: 48em) {
+    .hero {
+      margin-top: var(--sp-3md);
+      margin-bottom: var(--sp-2md);
+    }
   }
 </style>
