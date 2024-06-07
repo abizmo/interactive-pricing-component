@@ -3,14 +3,14 @@ import Discount from './discount.astro'
 import Switch from './switch.astro'
 ---
 
-<div>
-  <p id='views' class='calculator__text text-center uppercase'>
+<div class='views-selector'>
+  <p id='views' class='calculator__title text-center uppercase'>
     100K pageviews
   </p>
-  <p><b id='price'>$16.00</b>/month</p>
-  <div>
+  <div class='views__slider'>
     <input type='range' min='1' max='5' value='3' id='pageviews' />
   </div>
+  <p class='calculator__price'><b id='price'>$16.00</b>/ month</p>
 </div>
 <div class='calculator__billing'>
   <p class='calculator__text text-right'>Monthly Billing</p>
@@ -22,11 +22,47 @@ import Switch from './switch.astro'
 </div>
 
 <style>
+  .views-selector {
+    display: grid;
+    justify-items: center;
+    margin-bottom: var(--sp-md);
+  }
+
+  @media (min-width: 48em) {
+    .views-selector {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .views__slider {
+      grid-column: 1 / 3;
+      grid-row: 2;
+    }
+  }
+
   .calculator__billing {
     display: flex;
     justify-content: center;
     gap: var(--sp-1xs);
     align-items: center;
+  }
+
+  .calculator__title {
+    font-size: var(--fs-sm);
+    margin-bottom: var(--sp-sm);
+  }
+
+  .calculator__price {
+    font-size: var(--fs-md);
+    display: flex;
+    align-items: center;
+    gap: var(--sp-xxs);
+    margin-block: var(--sp-2sm) 0;
+  }
+
+  .calculator__price b {
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-xl);
+    color: hsl(var(--heading-fg));
   }
 
   .calculator__text {
@@ -41,6 +77,27 @@ import Switch from './switch.astro'
     display: flex;
     align-items: center;
     gap: var(--sp-xxxs);
+  }
+
+  @media (min-width: 48em) {
+    .views-selector {
+      padding-inline: var(--sp-1md);
+    }
+
+    .calculator__title {
+      font-size: var(--fs-md);
+      justify-self: start;
+    }
+
+    .calculator__price {
+      font-size: var(--fs-2md);
+      margin-block: 0 var(--sp-2sm);
+      justify-self: end;
+    }
+
+    .calculator__price b {
+      font-size: var(--fs-2xl);
+    }
   }
 </style>
 <script>
