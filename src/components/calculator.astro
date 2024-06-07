@@ -1,23 +1,48 @@
 ---
-
+import Discount from './discount.astro'
+import Switch from './switch.astro'
 ---
 
 <div>
-  <p id='views'>100K pageviews</p>
+  <p id='views' class='calculator__text text-center uppercase'>
+    100K pageviews
+  </p>
   <p><b id='price'>$16.00</b>/month</p>
   <div>
     <input type='range' min='1' max='5' value='3' id='pageviews' />
   </div>
 </div>
-<div>
-  <p>Monthly Billing</p>
-  <label>
-    <input type='checkbox' id='billing' />
-    <span></span>
-  </label>
-  <p>Yearly Billing <span>25% discount</span></p>
+<div class='calculator__billing'>
+  <p class='calculator__text text-right'>Monthly Billing</p>
+  <Switch id='billing' />
+  <p class='calculator__text calculator__text--offer'>
+    Yearly Billing
+    <Discount>25%</Discount>
+  </p>
 </div>
 
+<style>
+  .calculator__billing {
+    display: flex;
+    justify-content: center;
+    gap: var(--sp-1xs);
+    align-items: center;
+  }
+
+  .calculator__text {
+    font-size: var(--fs-sm);
+  }
+
+  .calculator__billing .calculator__text {
+    flex: 1;
+  }
+
+  .calculator__text--offer {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-xxxs);
+  }
+</style>
 <script>
   const pageviewsElement = document.getElementById(
     'pageviews'

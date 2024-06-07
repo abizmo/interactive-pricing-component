@@ -27,6 +27,8 @@
   --card-border: var(--light-grayish-blue);
   --card-shadow: var(--dark-desaturated-blue);
   --toggle-bg: var(--light-grayish-blue-2);
+  --toggle-bg--checked: var(--strong-cyan);
+  --toggle-fg: var(--white);
 
   --ff-sans: 'Manrope', sans-serif;
 
@@ -42,8 +44,11 @@
   --br-sm: 0.5rem;
   --br-full: 9999rem;
 
+  --sp-xxxs: 0.25rem;
+  --sp-xxs: 0.5rem;
   --sp-xs: 0.75rem;
   --sp-1xs: 1rem;
+  --sp-2xs: 1.25rem;
   --sp-sm: 1.5rem;
   --sp-2sm: 2rem;
   --sp-md: 2.5rem;
@@ -82,4 +87,17 @@ body {
 .container {
   width: min(var(--max-width), 100% - var(--padding) * 2);
   margin: 0 auto;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
 }

@@ -1,0 +1,40 @@
+---
+
+---
+
+<span class='bullet'>
+  <span class='show-sm-device'>-</span>
+  <slot />
+  <span class='show-lg-device'> discount</span>
+</span>
+
+<style>
+  .bullet {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(var(--discount-bg));
+    color: hsl(var(--discount-fg));
+    height: var(--sp-2xs);
+    padding: var(--sp-xxs);
+    border-radius: var(--br-full);
+    font-size: var(--fs-xs);
+  }
+  .show-sm-device {
+    display: inline;
+  }
+
+  .show-lg-device {
+    display: none;
+  }
+
+  @media (min-width: 48em) {
+    .show-sm-device {
+      display: none;
+    }
+
+    .show-lg-device {
+      display: inline;
+    }
+  }
+</style>
