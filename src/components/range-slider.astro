@@ -1,0 +1,96 @@
+---
+const { id, max, min, value } = Astro.props
+---
+
+<div class='container'>
+  <input
+    class='slider'
+    type='range'
+    min={min}
+    max={max}
+    value={value}
+    id={id}
+  />
+  <div id='thumb'>
+    <div class='thumbBtn'></div>
+  </div>
+  <div id='progressBar'></div>
+</div>
+
+<script>
+  let slider = document.querySelector('input') as HTMLInputElement
+  let thumb = document.getElementById('thumb') as HTMLDivElement
+  let progressBar = document.getElementById('progressBar') as HTMLDivElement
+
+  slider.addEventListener('input', (evt: Event) => {
+    const value =
+      (parseInt((evt.target as HTMLInputElement).value) / 4) * 100 + '%'
+    thumb.style.left = value
+    progressBar.style.width = value
+  })
+</script>
+
+<style>
+  .container {
+    --slider-width: 100%;
+    --slider-height: var(--sp-xxs);
+    --thumb-size: var(--sp-md);
+    width: var(--slider-width);
+    position: relative;
+  }
+
+  .slider {
+    -webkit-appearance: none;
+    background-color: hsl(var(--slider-bar));
+    width: var(--slider-width);
+    height: var(--slider-height);
+    border-radius: var(--br-full);
+  }
+
+  /* Design slider button */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: var(--thumb-size);
+    aspect-ratio: 1;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+  }
+
+  #thumb {
+    width: var(--thumb-size);
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  .thumbBtn {
+    width: var(--thumb-size);
+    aspect-ratio: 1;
+    background-color: hsl(var(--slider-thumb));
+    background-image: url(/images/icon-slider.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    box-shadow: 0 var(--sp-1xs) var(--sp-sm) 0 hsl(var(--slider-thumb) / 0.5);
+  }
+
+  .slider:hover + #thumb .thumbBtn,
+  .slider:focus-visible + #thumb .thumbBtn {
+    background-color: hsl(var(--slider-thumb--hover));
+  }
+
+  #progressBar {
+    width: 50%;
+    height: calc(var(--slider-height) + 1px);
+    background: hsl(var(--slider-bar--full));
+    border-radius: var(--br-full);
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+  }
+</style>

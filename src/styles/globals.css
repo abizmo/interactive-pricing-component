@@ -1,6 +1,7 @@
 :root {
   --soft-cyan: 174 77% 80%;
   --strong-cyan: 174 86% 45%;
+  --darker-cyan: 174 86% 30%;
   --light-grayish-red: 14 92% 95%;
   --light-red: 15 100% 70%;
   --pale-blue: 226 100% 87%;
@@ -13,7 +14,8 @@
 
   --slider-bar: var(--light-grayish-blue);
   --slider-bar--full: var(--soft-cyan);
-  --slider-bg: var(--strong-cyan);
+  --slider-thumb: var(--strong-cyan);
+  --slider-thumb--hover: var(--darker-cyan);
   --discount-bg: var(--light-grayish-red);
   --discount-fg: var(--light-red);
   --cta-bg: var(--dark-desaturated-blue);
@@ -82,7 +84,7 @@ body {
 
 @media (min-width: 48em) {
   body {
-    background-size: auto;
+    background-size: 100%;
   }
 }
 

@@ -1,5 +1,6 @@
 ---
 import Discount from './discount.astro'
+import RangeSlider from './range-slider.astro'
 import Switch from './switch.astro'
 ---
 
@@ -8,7 +9,7 @@ import Switch from './switch.astro'
     100K pageviews
   </p>
   <div class='views__slider'>
-    <input type='range' min='1' max='5' value='3' id='pageviews' />
+    <RangeSlider id='pageviews' max='4' min='0' value='2' />
   </div>
   <p class='calculator__price'><b id='price'>$16.00</b>/ month</p>
 </div>
@@ -28,15 +29,9 @@ import Switch from './switch.astro'
     margin-bottom: var(--sp-md);
   }
 
-  @media (min-width: 48em) {
-    .views-selector {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .views__slider {
-      grid-column: 1 / 3;
-      grid-row: 2;
-    }
+  .views__slider {
+    --padding: var(--sp-sm);
+    width: calc(100% - (var(--padding) * 2));
   }
 
   .calculator__billing {
@@ -79,9 +74,16 @@ import Switch from './switch.astro'
     gap: var(--sp-xxxs);
   }
 
-  @media (min-width: 48em) {
+  @media (min-width: 35em) {
     .views-selector {
       padding-inline: var(--sp-1md);
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .views__slider {
+      grid-column: 1 / 3;
+      grid-row: 2;
+      width: 100%;
     }
 
     .calculator__title {
@@ -120,12 +122,12 @@ import Switch from './switch.astro'
 
   function getPrice(value: number): number {
     const prices = [8, 12, 16, 24, 36]
-    return prices[value - 1] * (billingElement.checked ? 0.75 : 1)
+    return prices[value] * (billingElement.checked ? 0.75 : 1)
   }
 
   function printPageviews(views: number): void {
     const values = ['10K', '50K', '100K', '500K', '1M']
-    viewsElement.textContent = `${values[views - 1]} pageviews`
+    viewsElement.textContent = `${values[views]} pageviews`
   }
 
   function printPrice(pageviews: number): void {
